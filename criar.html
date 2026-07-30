@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Campanha - Vakinha</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="index.html" class="logo">Vakinha.vk</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="campanhas.html">Campanhas</a></li>
+                <li><a href="criar.html" class="btn-criar active">+ Criar Vaquinha</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="create-section">
+        <div class="container">
+            <div class="create-header">
+                <h1>Criar campanha</h1>
+                <p>Conte sua causa, adicione fotos e defina sua meta. Leva menos de 5 minutos.</p>
+            </div>
+
+            <div class="create-layout">
+                <form id="campaignForm" class="create-form" novalidate>
+
+                    <div class="form-section">
+                        <h2><span class="step-num">1</span> Fotos da campanha</h2>
+                        <p class="section-hint">A primeira foto é usada como capa. Arraste para reordenar.</p>
+
+                        <div class="dropzone" id="dropzone">
+                            <input type="file" id="imageInput" accept="image/*" multiple hidden>
+                            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6">
+                                <path d="M4 16.5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1.5"/>
+                                <path d="M7 9l5-5 5 5"/>
+                                <path d="M12 4v12"/>
+                            </svg>
+                            <p><strong>Arraste imagens aqui</strong> ou clique para selecionar</p>
+                            <span class="hint-small">PNG ou JPG, até 6 fotos</span>
+                        </div>
+
+                        <div class="image-grid" id="imageGrid"></div>
+                        <div class="field-error" id="err-imagens"></div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2><span class="step-num">2</span> Sobre a campanha</h2>
+
+                        <div class="field">
+                            <label for="titulo">Título da campanha</label>
+                            <input type="text" id="titulo" placeholder="Ex: Cirurgia urgente da Dona Aparecida" maxlength="80">
+                            <div class="field-error" id="err-titulo"></div>
+                        </div>
+
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="categoria">Categoria</label>
+                                <select id="categoria">
+                                    <option value="">Selecione</option>
+                                    <option value="saude">Saúde</option>
+                                    <option value="educacao">Educação</option>
+                                    <option value="moradia">Moradia</option>
+                                    <option value="emergencia">Emergência</option>
+                                    <option value="negocios">Negócios</option>
+                                    <option value="viagem">Viagem</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                                <div class="field-error" id="err-categoria"></div>
+                            </div>
+                            <div class="field">
+                                <label for="organizador">Seu nome (organizador)</label>
+                                <input type="text" id="organizador" placeholder="Nome completo" maxlength="60">
+                                <div class="field-error" id="err-organizador"></div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="descricao">Conte sua história</label>
+                            <textarea id="descricao" rows="5" placeholder="Explique o que aconteceu, para que servirá o dinheiro arrecadado e por que as pessoas deveriam contribuir." maxlength="600"></textarea>
+                            <div class="char-count"><span id="descCount">0</span>/600</div>
+                            <div class="field-error" id="err-descricao"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2><span class="step-num">3</span> Meta e prazo</h2>
+
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="meta">Meta de arrecadação (R$)</label>
+                                <input type="number" id="meta" min="1" step="1" placeholder="10000">
+                                <div class="field-error" id="err-meta"></div>
+                            </div>
+                            <div class="field">
+                                <label for="prazo">Prazo (dias)</label>
+                                <input type="number" id="prazo" min="1" max="120" step="1" placeholder="30">
+                                <div class="field-error" id="err-prazo"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-publicar">Publicar campanha</button>
+                    </div>
+                    <div class="submit-confirm" id="submitConfirm"></div>
+                </form>
+
+                <aside class="preview-pane">
+                    <div class="preview-label">Pré-visualização</div>
+                    <div id="previewCard"></div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Vakinha.vk - Plataforma de Crowdfunding. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="criar.js"></script>
+</body>
+</html>
